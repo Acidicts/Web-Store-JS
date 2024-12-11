@@ -12,6 +12,21 @@
         socket.on('connect', () => {
             console.log('Connected to server');
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('PayButton').addEventListener('click', function() {
+                fetch('https://api.exchangerate-api.com/v4/latest/GBP')
+                    .then(response => response.json())
+                    .then(data => {
+                        const exchangeRate = data.rates.USD;
+                        const amountInGDP = 1.5;
+                        const amountInUSD = (amountInGDP * exchangeRate).toFixed(2);
+                        const url = `https://hcb.hackclub.com/donations/start/bccs-hack-club?message=This+is+£${amountInGDP.toFixed(2)}+in+Dollars+Fill+in+The+Email+and+The+Name&goods=true&amount=${(amountInUSD * 100)}`;
+                        window.location.href = url;
+                    })
+                    .catch(error => console.error('Error fetching exchange rate:', error));
+            });
+        });
     </script>
     <script src="js/store.js"></script>
     <script src="js/sizing.js"></script>
