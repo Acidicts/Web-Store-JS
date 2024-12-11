@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/store.css">
     <link rel="stylesheet" type="text/css" href="css/sizing.css">
     <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script>
+        const socket = io(window.location.origin); // Use the current origin
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+    </script>
     <script src="js/sizing.js"></script>
     <script src="js/store.js"></script>
 </head>
