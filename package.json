@@ -2,8 +2,8 @@
   "name": "web-store",
   "version": "1.0.0",
   "scripts": {
-    "start": "node backend.js",
-    "dev": "nodemon backend.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "express": "^4.21.2",

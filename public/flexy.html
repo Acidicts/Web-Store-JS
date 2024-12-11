@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexy Rex Store</title>
+    <link rel="stylesheet" href="css/store.css">
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="js/store.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Flexy Rex Store</h1>
+    </div>
+    <div class="container">
+        <div class="product">
+            <img src="assets/images/Chameleon01.jpg" alt="Flexy Rex">
+            <div class="product-details">
+                <h2 class="product-title">Flexy Rex</h2>
+                <p class="product-description">Meet Flexy Rex, the most flexible dinosaur toy in the world! Perfect for kids and collectors alike.</p>
+                <p class="product-price">£1.50</p>
+                <p>We use BCCS Hack Club as a payment service</p>
+                <button id="PayButton" class="buy-button">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const payButton = document.getElementById('PayButton');
+        if (payButton) {
+            console.log('Pay button found');
+            payButton.addEventListener('click', () => {
+                console.log('Pay button clicked');
+                socket.emit('message', "flexy");
+            });
+        }
+    </script>
+    
+</body>
+</html>
